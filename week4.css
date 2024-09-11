@@ -1,0 +1,12 @@
+body{
+    background-color: palevioletred;
+}
+.container{
+    background-color: violet;
+}
+#container{
+    background-color: turquoise;
+}
+.container__child{
+    color: red;
+}

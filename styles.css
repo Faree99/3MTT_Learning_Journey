@@ -1,0 +1,319 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: whitesmoke;
+    position: sticky;
+    top: 0;
+    
+}
+.logo a{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bolder;
+    color: darkgreen;
+}
+.nav-links{
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+}
+.nav-links li a{
+    text-decoration: none;
+    color: grey;
+    font-weight: 500;
+    font-size: large;
+}
+.nav-links li a:hover {
+    color: darkgreen;
+    font-weight: bold;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: 20px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+.container{
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/how-to-eat-more-fruits-and-vegetables-1706223994.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 20px;
+    color: whitesmoke;
+}
+
+.container h1{
+    font-size: 50px;
+    text-align: justify;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+.container p{
+    font-size: 20px;
+    padding-left: 20px;
+
+}
+.container button{
+    padding: 15px 40px;
+    margin-left: 20px;
+    background-color: green;
+    border: none;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 15px;
+    transition: transform 0.3s;
+
+}
+.container button:hover{
+background-color: transparent;
+border: 2px solid green;
+color: green;
+transform: translateX(5px);
+}
+.second h1{
+    padding-top: 30px;
+    font-size: 35px;
+
+}
+.second h1, .product-filter{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+    .filter-btn {
+        padding: 10px 15px;
+        margin: 5px;
+        cursor: pointer;
+        color: gray;
+        display: inline-block;
+    }
+    .filter-btn:hover{
+        text-decoration: underline;
+        color: green;
+    }
+
+
+    .product-list {
+        display: grid;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        width: 90%;
+        margin: auto;
+        padding-top: 30px;
+    }
+
+    .product-card {
+        border: 1px solid #ddd;
+        width: 250px;
+        text-align: center;
+        display: none; /* Initially hide all products */
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    padding: 2px;
+
+    }
+    .product-card img{
+        max-width: 100%;
+        height: 200px;
+        border-radius: 15px;
+    }
+
+    .product-card button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .product-card button:hover {
+        background-color: #FF8C00;
+      }
+      
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+    /* Show products based on the checked input */
+    #show-all:checked ~ .product-list .product-card {
+        display: block;
+    }
+
+    #show-fruits:checked ~ .product-list .product-card.fruits {
+        display: block;
+    }
+
+    #show-vegetables:checked ~ .product-list .product-card.vegetables {
+        display: block;
+    }
+
+    /* Hide the actual radio inputs */
+    input[type="radio"] {
+        display: none;
+    }
+.find{
+    padding: 50px;
+}
+.third{
+    background:  url(images/79531761.cms);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    margin-top: 50px;
+}
+.blogsection{
+   text-align: center;
+}
+.blogflex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+div.blog {
+    margin: 5px;
+    width: 250px;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .blog img:hover {
+    border: 1px solid #777;
+    transform: scale(1, 1);
+
+  }
+  
+  div.blog img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.news {
+    padding: 15px;
+    text-align: center;
+  }
+
+  footer {
+    background-color: green;
+    padding: 20px 10px;
+    margin-top: 40px;
+  }
+  
+  footer a {
+    color: whitesmoke;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    color: #FF8C00;
+  }
+  .copyright{
+    color: whitesmoke;
+  }
+  .links ul{
+    list-style: none;
+  }
+  .links ul li{
+    padding: 5px;
+  }
+  .grid-3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .navbar, .nav-links{
+        display: block;
+    }
+    .container{
+        min-width: 100%;
+    }
+    .container h1{
+        font-size: 25px;
+       
+    }
+    .container p{
+        font-size: small;
+    }
+    .container button{
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-weight: 100;
+        font-size: medium;
+    }
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .product-card {
+        border: 1px solid #ddd;
+        width: 220px;
+
+    }
+    .blogflex{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    div.blog {
+        margin: 15px;
+        border: none;
+        width: 220px;
+        gap: 20px;
+   
+      }
+      .grid-3{
+        display: block;
+      }
+   
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
