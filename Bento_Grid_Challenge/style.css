@@ -1,35 +1,53 @@
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
-
+*{
+    box-sizing: border-box;
+}
 body{
     font-family: "DM Sans", system-ui;
-
 }
 @media only screen and (max-width: 1440px) {
-    *{
-        box-sizing: border-box;
-    }
     .container div{
+      grid-template-columns: repeat(12, 1fr);
         font-size: 20px;
-        padding: 50px;
-     
-      
+        padding: 10px;  
     }
-    .container img{
-        width: 200px;
-    }
-    .main div{
-        margin: 0;
-        padding: 0;
-    }
+    
 }
-@media only screen and (max-width: 375px) {
-    /* body{
-        background-color: red;
-    } */
+  
+  @media only screen and (max-width: 768px) {
     .container div{
         display: block;
+        padding: 10px;
         margin: 10px;
     }
+    .container img{
+        width: 100%;
+    }
+    
+    h1 {
+        font-size: 18px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+    
+  }
+  
+  @media only screen and (max-width: 375px) {
+    .container div{
+        display: block;
+        padding: 10px;
+        margin: 10px;
+    }
+    .container img{
+        width: 100%;
+    }
+    
+    h1 {
+        font-size: 16px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
 }
