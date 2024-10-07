@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interactive Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .hidden-text {
+            display: none;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .comment-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .comment-list li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple Interactive Page</h1>
+
+
+    <div class="post-card">
+        <h2>About Me</h2>
+        <p>I am Faridah Olamide Adebayo, a passionate Full Stack Software Developer...</p>
+     
+        <div class="hidden-text" id="hiddenText">
+            <p>with a background in Human Anatomy. Since beginning my career in January 2023, I have been dedicated to expanding my technical skills and sharing my knowledge. As an instructor at Ceresense, I have taught secondary school students HTML, CSS, JavaScript, and PHP Laravel, fostering the next generation of developers.
+                My journey into tech began with learning HTML, CSS, JavaScript, MySQL, and PHP. Now, I am delving into React.js and Tailwind CSS to enhance my front-end development skills. Alongside my technical pursuits, I have gained diverse experiences as a virtual assistant, logistics manager, and HR intern, equipping me with a well-rounded skill set that I bring to every project.
+                Currently, as a 3MTT Scholarship programme fellow, I am committed to continuous learning and innovation. Let's connect and grow together in the dynamic world of technology!</p>
+        </div>
+         <!-- Button to show hidden content -->
+        <button id="showTextBtn">Read More</button>
+    </div>
+
+    <!-- Comment form -->
+    <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <input type="text" id="commentName" placeholder="Your name" required>
+        <textarea id="commentText" placeholder="Your comment" required></textarea>
+        <button id="submitComment">Submit Comment</button>
+
+        <ul class="comment-list" id="commentList"></ul>
+    </div>
+</div>
+
+<script>
+    // Interaction 1: Show hidden text when button is clicked
+    const showTextBtn = document.getElementById('showTextBtn');
+    const hiddenText = document.getElementById('hiddenText');
+
+    showTextBtn.addEventListener('click', function() {
+        hiddenText.style.display = hiddenText.style.display === 'block' ? 'none' : 'block';
+        showTextBtn.textContent = hiddenText.style.display === 'block' ? 'Read Less' : 'Read More';
+    });
+
+    // Interaction 2: Submit comment and display it
+    const submitComment = document.getElementById('submitComment');
+    const commentList = document.getElementById('commentList');
+
+    submitComment.addEventListener('click', function() {
+        const commentName = document.getElementById('commentName').value;
+        const commentText = document.getElementById('commentText').value;
+
+        if (commentName && commentText) {
+            const newComment = document.createElement('li');
+            newComment.textContent = `${commentName}: ${commentText}`;
+            commentList.appendChild(newComment);
+
+            // Clear form fields
+            document.getElementById('commentName').value = '';
+            document.getElementById('commentText').value = '';
+        }
+    });
+</script>
+
+</body>
+</html>

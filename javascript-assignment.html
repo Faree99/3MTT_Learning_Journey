@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week7 Javascript Assignment</title>
+</head>
+<body>
+
+<h1>Javascript Assignment</h1>
+<p>
+    Declare a variable for person age and whether they are students or not. 
+    further, use Data type to ensure that their age is in number and their status is in student or not.
+     Use logical operator to determine their class with the following conditions:
+    </p>
+     <ul>
+        <li>If the person is under 18, their class should be in junior class </li>
+        <li>If the person is above 18 and is a student they should be in senior class</li>
+        <li>If the person is above 18 and not beyond 25, their class should be advance</li>
+     </ul>
+    
+    <script>
+    let age = 20; 
+    let isStudent = true; 
+    let notStudent = false; 
+    let student = typeof age;
+    let status1 = typeof isStudent;
+    let status2 = typeof notStudent;
+
+    
+    console.log(student);
+    console.log(status1);
+    console.log(status2);
+
+
+    if (student === 'number' && status1 && status2 === 'boolean') {
+  if (age < 18) {
+    console.log('The person is in junior class.');
+  } else if (age > 18 && isStudent) {
+    console.log('The person is in senior class.');
+  } else if (age > 18 && age <= 25) {
+    console.log('The person is in advance class.');
+  } else {
+    console.log('The person does not fall into any specific class.');
+  }
+} else {
+  console.log('Invalid data types: age should be a number, and isStudent should be a boolean.');
+}
+
+
+// // const weather = 'Sunny';
+// const weather = "Weather condition ?";
+
+// // switch (weather) {
+// switch (prompt(weather)) {
+
+//   case 'rainy': 
+//     console.log('it is raining');
+//     break;
+//     case 'cloudy': 
+//     console.log('it is cloudy');
+//     break;
+//     case 'Sunny': 
+//     console.log('it is sunny');
+//     break;
+
+//   default:
+//   console.log('it is neither raining nor cloudy nor sunny');
+    
+// }
+
+const profile = 'John Smith';
+let ages = 32;
+var occupation = 'Developer';
+
+const fullBio = profile + ages + occupation;
+console.log(fullBio);
+
+const betterOption = `Johnas is a better ${occupation}`;
+console.log(betterOption);
+
+const sumOfNumbers = 8 + 8 / 2;
+console.log(sumOfNumbers);
+
+const sarah = 17;
+const adult = 18;
+
+const answer = sarah  > adult ?   "She is old enough" : "she is young";
+console.log(answer);
+
+//FUNCTION EXPLANATION
+function Settings(a,b) {
+  // console.log('test');
+  const result = a + b;
+console.log(result);
+}
+Settings(5, 6);
+Settings(14, 28);
+Settings('Goodmorning', 'Faridah');
+
+const expression = function(x,y){
+let agE = x-y;
+console.log(agE);
+return agE;
+}
+
+expression(5,1);
+
+
+let global = 33;
+const arrow = ( ) => {
+  let local = 22;
+console.log(local);
+  // return local;
+}
+
+arrow();
+console.log(global);
+// console.log(local);
+
+
+
+
+    </script>
+    
+</body>
+</html>

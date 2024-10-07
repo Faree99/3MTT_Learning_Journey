@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Blog</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #444;
+            color: white;
+            padding: 20px;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .post-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.333% - 40px);
+            min-width: 280px;
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .post-card h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .post-card p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .post-card .read-more-content {
+            display: none;
+        }
+
+        .read-more {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Form Styling */
+        .comment-section {
+            margin-top: 30px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .comment-form input, .comment-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .comment-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .comments-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .comments-list li {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Interactive Blog</h1>
+        </header>
+
+        <aside class="sidebar">
+            <h3>About the Blog</h3>
+        </aside>
+
+        <main class="main">
+            <div class="post-grid">
+                <div class="post-card">
+                    <h2>Post Title 1</h2>
+                    <p>Lorem ipsum dolor sit amet...</p>
+                    <div class="read-more-content">
+                        <p>Extra hidden content for this post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit massa vitae eros sollicitudin aliquam.</p>
+                    </div>
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+
+            <div class="comment-section">
+                <h3>Leave a Comment</h3>
+                <form class="comment-form">
+                    <input type="text" placeholder="Your name" id="comment-name" required>
+                    <textarea id="comment-text" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit Comment</button>
+                </form>
+
+                <ul class="comments-list">
+                    <!-- Comments will appear here -->
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Interactive Blog</p>
+        </footer>
+    </div>
+
+    <script>
+        // Interaction 1: Toggle Read More Content
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.previousElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                this.textContent = content.style.display === 'block' ? 'Read Less' : 'Read More';
+            });
+        });
+
+        // Interaction 2: Submit Comment
+        const commentForm = document.querySelector('.comment-form');
+        const commentsList = document.querySelector('.comments-list');
+
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('comment-name').value;
+            const commentText = document.getElementById('comment-text').value;
+
+            if (name && commentText) {
+                const newComment = document.createElement('li');
+                newComment.textContent = `${name}: ${commentText}`;
+                commentsList.appendChild(newComment);
+
+                // Clear form after submission
+                commentForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
+

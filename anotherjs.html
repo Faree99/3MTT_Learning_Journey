@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <script>
+        // Variables and data types
+        let userName = prompt("Enter your name:");
+        let userCart = [];
+        let products = [
+          { id: 1, name: "Apple", price: 300 },
+          { id: 2, name: "Banana", price: 100 },
+          { id: 3, name: "Orange", price: 200 }
+        ];
+
+        // Control flow statements
+        function displayProducts() {
+          console.log("Available Products:");
+          products.forEach((product) => {
+            console.log(`${product.id}. ${product.name} - $${product.price}`);
+          });
+        }
+
+        function addToCart(productId) {
+          const product = products.find((p) => p.id === productId);
+          if (product) {
+            userCart.push(product);
+            console.log(`Added ${product.name} to cart.`);
+          } else {
+            console.log("Invalid product ID.");
+          }
+        }
+
+        // Arrays and Objects
+        function viewCart() {
+          console.log(`Your Cart, ${userName}:`);
+          if (userCart.length === 0) {
+            console.log("Your cart is empty.");
+          } else {
+            userCart.forEach((product) => {
+              console.log(`${product.name} - $${product.price}`);
+            });
+          }
+        }
+
+        // Asynchronous Features (using async/await)
+        async function checkout() {
+          let total = 0;
+          if (userCart.length === 0) {
+            console.log("Your cart is empty, nothing to checkout.");
+            return;
+          }
+          
+          userCart.forEach((product) => {
+            total += product.price;
+          });
+          console.log(`Total: $${total}`);
+          
+          // Simulate payment processing (async operation)
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          console.log("Payment processed. Thank you!");
+        }
+
+        // Main program logic
+        displayProducts();
+        
+        async function startShopping() {
+          while (true) {
+            const choice = prompt("Enter product ID to add to cart, 'view' to see cart, or 'checkout' to pay:");
+            
+            if (choice === "view") {
+              viewCart();
+            } else if (choice === "checkout") {
+              await checkout();
+              break;  // Exit the loop after checkout
+            } else if (!isNaN(choice)) {
+              addToCart(parseInt(choice));
+            } else {
+              console.log("Invalid input, please enter a valid product ID, 'view', or 'checkout'.");
+            }
+          }
+        }
+
+        // Start the shopping process
+        startShopping();
+    </script>
+</body>
+</html>

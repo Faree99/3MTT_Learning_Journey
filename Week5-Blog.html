@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Blog</title>
+    <style>
+        /* Element selector General Styling  */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* Grid Layout for the entire page */ /* Class selector */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+        }
+
+        /* Element selector */
+        header {
+            grid-area: header;
+            background-color: #036333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Descendant selector */
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Sidebar */ /* ID selector */
+        #sidebar {
+            grid-area: sidebar;
+            background-color: #8dc6ac;
+            color: white;
+            padding: 20px;
+        }
+
+        /* Descendant selector */
+        #sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Main Blog Content Area */ /* Class selector */
+        .main {
+            grid-area: main;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Flexbox for Blog Post Cards */
+        .post-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .post-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.333% - 40px); /* Responsive: 3 columns */
+            min-width: 280px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Pseudo-class selector */
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Descendant selector */
+        .post-card h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        /* Descendant selector */
+        .post-card p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .read-more {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Pseudo-class selector */
+        .read-more:hover {
+            background-color: #218838;
+        }
+
+        /* Footer */
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "footer";
+            }
+
+            .post-card {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .sidebar h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Animation */
+        .animated-heading {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .bounce {
+        animation: bounce 4s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Page Layout Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1 class="animated-heading">Welcome to Faree Blog</h1>
+        </header>
+
+        <!-- Sidebar Section -->
+        <aside id="sidebar">
+            <h3>About Faree Blog</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum, risus nec eleifend ullamcorper, urna turpis venenatis dui, non ullamcorper nisi eros et enim.</p>
+        </aside>
+
+        <!-- Main Blog Content Section -->
+        <main class="main">
+            <div class="post-grid">
+                <!-- Blog Post Card 1 -->
+                <div class="post-card">
+                    <h2>Post Title 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum diam nec justo fermentum dapibus.</p>
+                    <button class="read-more bounce">Read More</button>
+                </div>
+
+                <!-- Blog Post Card 2 -->
+                <div class="post-card">
+                    <h2>Post Title 2</h2>
+                    <p>Curabitur venenatis erat id turpis pellentesque, nec aliquam lectus eleifend. Aliquam erat volutpat.</p>
+                    <button class="read-more bounce">Read More</button>
+                </div>
+
+                <!-- Blog Post Card 3 -->
+                <div class="post-card">
+                    <h2>Post Title 3</h2>
+                    <p>Suspendisse potenti. Nulla non nisi sit amet nulla euismod fringilla sit amet nec quam.</p>
+                    <button class="read-more bounce">Read More</button>
+                </div>
+
+                  <!-- Blog Post Card 4 -->
+                  <div class="post-card">
+                    <h2>Post Title 4</h2>
+                    <p>Suspendisse potenti. Nulla non nisi sit amet nulla euismod fringilla sit amet nec quam.</p>
+                    <button class="read-more bounce">Read More</button>
+                </div>
+                
+                  <!-- Blog Post Card 5 -->
+                  <div class="post-card">
+                    <h2>Post Title 5</h2>
+                    <p>Suspendisse potenti. Nulla non nisi sit amet nulla euismod fringilla sit amet nec quam.</p>
+                    <button class="read-more bounce">Read More</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Faree Blog | All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
